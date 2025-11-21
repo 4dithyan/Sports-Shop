@@ -175,13 +175,6 @@ AJAX endpoints are available in the `ajax/` directory:
 - `wishlist.php` - Manage wishlist items
 - `add-review.php` - Submit product reviews
 
-## Admin Login 
-Admin id : admin@cosmossports.com
-Pass     : admin123
-
-## Customer Login
-Register as new new customer as login as normal
-
 ## Contributing
 
 1. Fork the repository
