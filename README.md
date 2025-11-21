@@ -1,171 +1,199 @@
-# COSMOS Sports - Premium E-commerce Platform
+# COSMOS Sports - Premium Sports E-commerce Platform
 
-A sophisticated sports e-commerce platform with a dark-themed UI and kinetic orange accents. Designed for discerning athletes and performance gear enthusiasts, this platform delivers a premium digital shopping experience.
+COSMOS Sports is a premium sports e-commerce platform built with PHP, MySQL, and modern web technologies. The platform features a dark-themed UI with a complete shopping experience including product catalog, shopping cart, wishlist, user accounts, and admin panel.
 
-## Design Philosophy
+## Features
 
-### Aesthetic & Mood
-- **Minimalist & Architectural**: Clean lines, deliberate whitespace, and art-directed layouts
-- **Sophisticated Dark Theme**: Deep charcoal and tungsten grey foundations with vibrant accent colors
-- **Premium Typography**: Sharp geometric sans-serif for headings, highly legible fonts for body copy
+### Frontend Features
+- Responsive design with mobile-first approach
+- Product catalog with filtering and sorting capabilities
+- Product details page with images, descriptions, and reviews
+- Shopping cart functionality with quantity adjustment
+- Wishlist management
+- User account system with order history
+- Secure checkout process
+- Newsletter subscription
+- Search functionality
 
-### Color Palette
-- **Foundation**: Deep Charcoal (#121212) and Tungsten Grey (#333333)
-- **Accent**: Kinetic Orange (#FF4500) for calls-to-action and interactive elements
-- **Text**: Off-White (#F5F5F5) for headlines, warm grey (#AFAFAF) for body copy
+### Admin Panel Features
+- Dashboard with sales analytics and statistics
+- Product management (add, edit, delete, featured status)
+- Category management
+- Order management with status updates
+- User management
+- Review management
+- Size management for products
+- Sales reporting and analytics
 
-## Key Features
-
-### Premium Product Presentation
-- Editorial-style product pages with storytelling elements
-- High-fidelity imagery with dramatic lighting
-- Detailed specification views and feature highlights
-
-### Advanced Shopping Experience
-- **Product Reviews**: Customers can review and rate products they've purchased
-- **Size Management**: Comprehensive size selection system for apparel and footwear
-- **Wishlist**: Save favorite items for later purchase
-- **Shopping Cart**: Intuitive cart management with quantity adjustments
-
-### User Account Management
-- Personal dashboard with order history
-- Profile management and address book
-- Order tracking and cancellation (for eligible orders)
-
-### Admin Panel
-- Complete product management system
-- Order processing and status updates
-- User account management
-- Category and size management
+### Technical Features
+- Secure user authentication and authorization
+- CSRF protection
+- Input sanitization and validation
+- Prepared statements for database queries
+- Password hashing
+- XSS prevention
+- Responsive design using Bootstrap 5
+- Modern UI with animations and transitions
 
 ## Technology Stack
 
-- **Frontend**: HTML5, CSS3, JavaScript (ES6+), Bootstrap 5
 - **Backend**: PHP 8.0+
 - **Database**: MySQL 5.7+
+- **Frontend**: HTML5, CSS3, JavaScript (ES6+), Bootstrap 5
 - **Security**: CSRF protection, input sanitization, prepared statements, password hashing, XSS escaping
+- **Web Server**: Apache/Nginx
 
-## Requirements
+## Project Structure
 
+```
+.
+├── admin/                 # Admin panel files
+│   ├── categories.php
+│   ├── dashboard.php
+│   ├── index.php
+│   ├── order-details.php
+│   ├── orders.php
+│   ├── products.php
+│   ├── sizes.php
+│   └── users.php
+├── ajax/                  # AJAX handlers
+│   ├── add-review.php
+│   ├── add-to-cart.php
+│   ├── remove-from-cart.php
+│   ├── update-cart.php
+│   └── wishlist.php
+├── assets/                # Static assets
+│   ├── css/
+│   │   ├── admin-modern.css
+│   │   └── style.css
+│   └── js/
+│       ├── admin.js
+│       └── script.js
+├── includes/              # Shared components
+│   ├── admin-sidebar.php
+│   ├── db.php
+│   ├── footer.php
+│   ├── functions.php
+│   └── header.php
+├── about.php
+├── cart.php
+├── categories.php
+├── checkout.php
+├── config.php
+├── contact.php
+├── create-sizes-table-web.php
+├── index.php
+├── login.php
+├── logout.php
+├── my-account.php
+├── order-confirmation.php
+├── order-details.php
+├── product-detail.php
+├── products.php
+├── quick-setup.php
+├── register.php
+└── wishlist.php
+```
+
+## Database Schema
+
+The platform uses the following database tables:
+- `categories` - Product categories
+- `users` - Customer and admin accounts
+- `products` - Product information
+- `orders` - Customer orders
+- `order_items` - Items within orders
+- `wishlist` - User wishlist items
+- `reviews` - Product reviews
+- `product_sizes` - Product size variations
+
+## Setup Instructions
+
+### Prerequisites
 - PHP 8.0 or higher
 - MySQL 5.7 or higher
-- Apache/Nginx web server
-- XAMPP/WAMP (for local development)
-- Modern web browser with CSS3 and JavaScript ES6+ support
+- Apache or Nginx web server
+- Composer (optional, for dependency management)
 
-## Installation
+### Installation Steps
 
-### 1. Clone or Download
-Place the project files in your web server directory (e.g., `htdocs` for XAMPP).
-
-### 2. Database Setup
-1. Open phpMyAdmin or your MySQL client
-2. Create a new database named `project`
-3. Import the `setup-database.sql` file to create tables and sample data
-
-### 3. Configuration
-1. Open `config.php` and update the database credentials if needed:
+1. Clone or download the repository to your web server directory
+2. Create a MySQL database named `project`
+3. Update the database configuration in `config.php` if needed:
    ```php
    define('DB_HOST', 'localhost');
    define('DB_NAME', 'project');
    define('DB_USER', 'root');
    define('DB_PASS', '');
    ```
+4. Run the setup script by accessing `quick-setup.php` in your browser or command line
+5. This will create all necessary tables and insert sample data
+6. Access the website at your configured URL
+7. Access the admin panel at `/admin/dashboard.php`
 
-2. Update the site URL in `config.php`:
-   ```php
-   define('SITE_URL', 'http://localhost/PROJECTS/project');
-   ```
+### Default Admin Credentials
+- **Email**: admin@cosmossports.com
+- **Password**: admin123
 
-### 4. File Permissions
-Ensure the following directories are writable:
-- `assets/images/products/` (for product image uploads)
+## Configuration
 
-### 5. Access the Website
-- **Frontend**: Visit `http://localhost/PROJECTS/project`
-- **Admin Panel**: Visit `http://localhost/PROJECTS/project/admin/dashboard.php`
-- **Admin Login**: 
-  - Email: `admin@cosmossports.com`
-  - Password: `admin123`
+Key configuration settings can be found in `config.php`:
+- Database connection settings
+- Site name and URL
+- Email and phone contact information
+- Security settings (secret key, encryption method)
+- E-commerce settings (currency, tax rate, shipping costs)
+- File upload settings
+- Pagination settings
 
-## File Structure
+## Security Measures
 
-```
-project/
-├── index.php                 # Homepage
-├── products.php              # Product catalog
-├── product-detail.php        # Individual product pages
-├── cart.php                  # Shopping cart
-├── checkout.php              # Checkout process
-├── login.php                 # User login
-├── register.php              # User registration
-├── my-account.php            # User dashboard
-├── wishlist.php              # User wishlist
-├── categories.php            # Product categories
-├── about.php                 # About page
-├── contact.php               # Contact form
-├── config.php                # Site configuration
-├── setup-database.sql        # Database setup script
-├── includes/                 # Shared PHP files
-│   ├── header.php           # Site header
-│   ├── footer.php           # Site footer
-│   ├── functions.php        # Utility functions
-│   ├── db.php               # Database connection
-│   └── classes/             # PHP classes
-│       ├── Product.class.php
-│       ├── User.class.php
-│       ├── Order.class.php
-│       ├── Review.class.php
-│       └── Size.class.php
-├── admin/                   # Admin panel
-│   ├── dashboard.php        # Admin dashboard
-│   ├── products.php         # Product management
-│   ├── orders.php           # Order management
-│   ├── users.php            # User management
-│   └── sizes.php            # Product size management
-├── ajax/                    # AJAX endpoints
-│   ├── add-to-cart.php
-│   ├── update-cart.php
-│   ├── remove-from-cart.php
-│   ├── wishlist.php
-│   └── add-review.php
-└── assets/                  # Static assets
-    ├── css/
-    │   └── style.css        # Main stylesheet
-    ├── js/
-    │   └── script.js        # Main JavaScript
-    └── images/              # Images and media
-```
+- Passwords are securely hashed using PHP's password_hash() function
+- Prepared statements are used for all database queries to prevent SQL injection
+- Input validation and sanitization on all user-submitted data
+- CSRF protection on forms
+- XSS prevention through output escaping
+- Secure session configuration
 
-## Usage
+## Customization
 
-### For Customers
-1. **Browse Products**: Visit the homepage or product categories to discover gear
-2. **Add to Cart**: Select sizes where applicable and add products to your cart
-3. **Checkout**: Proceed through the secure checkout process
-4. **Create Account**: Register for an account to track orders and save wishlist items
-5. **Review Products**: After logging in, customers can review products they've purchased
+### Styling
+- Main frontend styles: `assets/css/style.css`
+- Admin panel styles: `assets/css/admin-modern.css`
 
-### For Administrators
-1. **Login**: Use the admin credentials to access the admin panel
-2. **Manage Products**: Add, edit, or delete products and their sizes
-3. **Process Orders**: Update order statuses and view order details
-4. **Manage Users**: View and manage customer accounts
-5. **Manage Sizes**: Configure product sizes for apparel and footwear
+### Functionality
+- Shared functions: `includes/functions.php`
+- Database connection: `includes/db.php`
+- Header and footer: `includes/header.php` and `includes/footer.php`
 
-## Security Features
+## API Endpoints
 
-- **Password Hashing**: All passwords are hashed using PHP's `password_hash()`
-- **CSRF Protection**: Forms include CSRF tokens
-- **Input Sanitization**: All user inputs are sanitized
-- **SQL Injection Prevention**: Uses prepared statements
-- **XSS Protection**: Output is escaped with `htmlspecialchars()`
-- **Session Management**: Secure session handling with regeneration
+AJAX endpoints are available in the `ajax/` directory:
+- `add-to-cart.php` - Add products to cart
+- `remove-from-cart.php` - Remove products from cart
+- `update-cart.php` - Update cart item quantities
+- `wishlist.php` - Manage wishlist items
+- `add-review.php` - Submit product reviews
 
-## Browser Support
+## Admin Login 
+Admin id : admin@cosmossports.com
+Pass     : admin123
 
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
-- Modern browsers with CSS3 and JavaScript ES6+ support
+## Customer Login
+Register as new new customer as login as normal
+
+## Contributing
+
+1. Fork the repository
+2. Create a new branch for your feature
+3. Commit your changes
+4. Push to your branch
+5. Create a pull request
+
+## License
+
+This project is proprietary and intended for educational purposes. All rights reserved.
+
+## Support
+
+For support, please contact the development team or create an issue in the repository.
