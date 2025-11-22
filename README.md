@@ -1,6 +1,6 @@
 # COSMOS Sports - Premium Sports E-commerce Platform
 
-COSMOS Sports is a premium sports e-commerce platform built with PHP, MySQL, and modern web technologies. The platform features a dark-themed UI with a complete shopping experience including product catalog, shopping cart, wishlist, user accounts, and admin panel.
+COSMOS Sports is a premium sports e-commerce platform built with PHP, MySQL, and modern web technologies. The platform features a light-themed UI with a complete shopping experience including product catalog, shopping cart, wishlist, user accounts, and admin panel.
 
 ## Features
 
